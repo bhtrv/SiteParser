@@ -20,13 +20,16 @@ namespace SiteParser
             _urls = new List<string>();
             _address = new List<Address>();
             InitializeComponent();
+            sityComboBox.SelectedIndex = 0;
         }
 
         private async void DataButton_Click(object sender, System.EventArgs e)
         {
+            string sity = sityComboBox.Text.ToLower();
+
             _urls.Clear();
             _address.Clear();
-            string url = "https://bestmaps.ru/city/orenburg/street";
+            string url = $"https://bestmaps.ru/city/{sity}/street";
 
             var config = Configuration.Default.WithDefaultLoader();
             using (var context = BrowsingContext.New(config))
@@ -35,8 +38,8 @@ namespace SiteParser
                 var urlsFromSite = doc.QuerySelectorAll("a");
                 foreach (var ufs in urlsFromSite)
                 {
-                    if (ufs.GetAttribute("href").Contains("/city/orenburg"))
-                        if (!ufs.GetAttribute("href").Contains("/city/orenburg/street/letter"))
+                    if (ufs.GetAttribute("href").Contains($"/city/{sity}"))
+                        if (!ufs.GetAttribute("href").Contains($"/city/{sity}/street/letter"))
                         {
                             _urls.Add(ufs.GetAttribute("href"));
                         }

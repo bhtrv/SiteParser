@@ -34,6 +34,7 @@ namespace SiteParser
             this.SaveButton = new System.Windows.Forms.Button();
             this.SaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.sityComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // DataTextBox
@@ -50,7 +51,7 @@ namespace SiteParser
             // GetButton
             // 
             this.GetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.GetButton.Location = new System.Drawing.Point(12, 12);
+            this.GetButton.Location = new System.Drawing.Point(12, 39);
             this.GetButton.Name = "GetButton";
             this.GetButton.Size = new System.Drawing.Size(114, 30);
             this.GetButton.TabIndex = 3;
@@ -84,11 +85,24 @@ namespace SiteParser
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // sityComboBox
+            // 
+            this.sityComboBox.FormattingEnabled = true;
+            this.sityComboBox.Items.AddRange(new object[] {
+            "Orengurg",
+            "Orsk",
+            "Pechora"});
+            this.sityComboBox.Location = new System.Drawing.Point(12, 12);
+            this.sityComboBox.Name = "sityComboBox";
+            this.sityComboBox.Size = new System.Drawing.Size(114, 21);
+            this.sityComboBox.TabIndex = 6;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 241);
+            this.Controls.Add(this.sityComboBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.GetButton);
@@ -107,6 +121,7 @@ namespace SiteParser
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.SaveFileDialog SaveDialog;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox sityComboBox;
     }
 }
 
